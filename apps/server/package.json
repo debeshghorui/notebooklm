@@ -1,26 +1,23 @@
 {
     "name": "server",
-    "module": "index.ts",
     "type": "module",
     "private": true,
     "scripts": {
-        "start": "node dist/server.js",
+        "start": "node dist/index.js",
         "build": "tsc -p .",
-        "dev": "tsc-watch --onSuccess \"node dist/server.js\"",
+        "dev": "tsc-watch --onSuccess \"node dist/index.js\"",
         "lint": "turbo run lint",
         "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
         "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,md}\"",
         "check-types": "tsc --noEmit"
     },
     "devDependencies": {
-        "@types/bun": "latest",
+        "@repo/typescript-config": "*",
         "@types/express": "^5.0.6",
         "@types/node": "^22.13.10",
         "tsc-watch": "^7.2.0",
-        "tsx": "^4.21.0"
-    },
-    "peerDependencies": {
-        "typescript": "^5"
+        "tsx": "^4.21.0",
+        "typescript": "5.9.2"
     },
     "dependencies": {
         "express": "^5.2.1"
