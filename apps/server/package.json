@@ -6,6 +6,14 @@
         "start": "node dist/index.js",
         "build": "tsc -p .",
         "dev": "tsc-watch --onSuccess \"node dist/index.js\"",
+        "docker:up": "docker compose up -d",
+        "docker:down": "docker compose down",
+        "docker:restart": "docker compose down && docker compose up -d",
+        "docker:logs": "docker compose logs -f",
+        "docker:exec": "docker compose exec postgres psql -U postgres -d notebooklm",
+        "prisma:generate": "bunx --bun run prisma generate",
+        "prisma:migrate": "bunx --bun run prisma migrate dev",
+        "prisma:studio": "bunx --bun run prisma studio",
         "lint": "turbo run lint",
         "format:check": "prettier --check \"**/*.{js,ts,json,md}\"",
         "format": "prettier --write \"**/*.{js,ts,json,md}\"",
@@ -20,7 +28,10 @@
         "typescript": "5.9.2"
     },
     "dependencies": {
+        "@prisma/adapter-pg": "^7.9.1",
+        "@prisma/client": "^7.9.1",
         "dotenv": "^17.4.2",
-        "express": "^5.2.1"
+        "express": "^5.2.1",
+        "pg": "^8.22.0"
     }
 }
