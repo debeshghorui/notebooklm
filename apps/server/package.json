@@ -11,9 +11,9 @@
         "docker:restart": "docker compose down && docker compose up -d",
         "docker:logs": "docker compose logs -f",
         "docker:exec": "docker compose exec postgres psql -U postgres -d notebooklm",
-        "prisma:generate": "bunx --bun run prisma generate",
-        "prisma:migrate": "bunx --bun run prisma migrate dev",
-        "prisma:studio": "bunx --bun run prisma studio",
+        "prisma:generate": "bun --bun run prisma generate",
+        "prisma:migrate": "bun --bun run prisma migrate dev",
+        "prisma:studio": "bun --bun run prisma studio",
         "lint": "turbo run lint",
         "format:check": "prettier --check \"**/*.{js,ts,json,md}\"",
         "format": "prettier --write \"**/*.{js,ts,json,md}\"",
@@ -22,7 +22,8 @@
     "devDependencies": {
         "@repo/typescript-config": "*",
         "@types/express": "^5.0.6",
-        "@types/node": "^22.13.10",
+        "@types/node": "^26.1.2",
+        "prisma": "^7.9.1",
         "tsc-watch": "^7.2.0",
         "tsx": "^4.21.0",
         "typescript": "5.9.2"
