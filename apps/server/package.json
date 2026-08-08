@@ -11,6 +11,7 @@
         "docker:restart": "docker compose down && docker compose up -d",
         "docker:logs": "docker compose logs -f",
         "docker:exec": "docker compose exec postgres psql -U postgres -d notebooklm",
+        "prisma:format": "bun --bun run prisma format",
         "prisma:generate": "bun --bun run prisma generate",
         "prisma:migrate": "bun --bun run prisma migrate dev",
         "prisma:studio": "bun --bun run prisma studio",
@@ -32,6 +33,7 @@
     "dependencies": {
         "@prisma/adapter-pg": "^7.9.1",
         "@prisma/client": "^7.9.1",
+        "better-auth": "^1.6.26",
         "dotenv": "^17.4.2",
         "express": "^5.2.1",
         "pg": "^8.22.0"
