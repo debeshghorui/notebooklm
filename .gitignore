@@ -45,5 +45,3 @@ yarn-error.log*
 
 # Prettier
 .prettier-cache
-
-.cursor\rules\openmemory.mdc
