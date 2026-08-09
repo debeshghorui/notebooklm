@@ -1,7 +1,7 @@
 import type { NextFunction, Request, Response } from "express";
 import multer from "multer";
 import { ZodError } from "zod";
-import { AppError, NotFoundError, ValidationError } from "../types/appError.js";
+import { AppError, NotFoundError, ValidationError } from "../utils/appError.js";
 import { getZodFieldErrors } from "../utils/zodError.js";
 
 export function errorHandler(error: Error, _req: Request, res: Response, next: NextFunction): void {

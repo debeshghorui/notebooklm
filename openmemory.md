@@ -42,3 +42,4 @@ Shared shadcn/ui design system for the monorepo.
 - Import shared components: `import { Button } from "@repo/ui/components/button"`
 - No Next.js in `packages/ui` — only React + shadcn runtime deps
 - Express `Request` augmentation: declare module `"express-serve-static-core"`; keep `@types/express-serve-static-core` as a direct server devDependency so the module resolves under Bun workspaces
+- Express `asyncHandler`: typed as `Promise<unknown>` so controllers may `return res.status(...).json(...)` (return value is discarded; errors still go to `next`)
