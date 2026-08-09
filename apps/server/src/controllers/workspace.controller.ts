@@ -13,6 +13,7 @@ import {
     updateWorkspaceSchema,
 } from "../validators/workspace.validator.js";
 
+
 export async function listWorkspaces(req: Request, res: Response) {
     const workspaces = await findWorkspaceByUserId(req.session.user.id);
     res.json(workspaces);
@@ -34,7 +35,10 @@ export async function getWorkspace(req: Request, res: Response) {
 
 export async function createWorkspace(req: Request, res: Response) {
     const input = createWorkspaceSchema.parse(req.body);
-    const workspace = await createWorkspaceRecord(req.session.user.id, input);
+    const workspace = await createWorkspaceRecord(
+        req.session.user.id,
+        input,
+    );
 
     res.status(201).json(workspace);
 }
@@ -62,6 +66,6 @@ export async function deleteWorkspace(req: Request, res: Response) {
     }
 
     await deleteWorkspaceForUser(workspaceId as string, req.session.user.id);
-
+    
     res.status(204).send();
 }

@@ -1,9 +1,5 @@
 import prisma from "../lib/db.js";
-import type {
-    CHAT_MODELS,
-    CreateWorkspaceSchema,
-    UpdateWorkspaceSchema,
-} from "../validators/workspace.validator.js";
+import type { CHAT_MODELS, CreateWorkspaceSchema, UpdateWorkspaceSchema } from "../validators/workspace.validator.js";
 
 export const workspaceSelect = {
     id: true,
@@ -34,38 +30,29 @@ export function findWorkspaceByUserId(id: string) {
             updatedAt: "desc",
         },
     });
-}
+};
 
-export function findWorkspaceByIdAndUserId(
-    workspaceId: string,
-    userId: string,
-) {
+export function findWorkspaceByIdAndUserId(workspaceId: string, userId: string) {
     return prisma.workspace.findUnique({
         where: {
             id: workspaceId,
             userId,
         },
         select: workspaceSelect,
-    });
-}
+    })
+};
 
-export function createWorkspaceRecord(
-    userId: string,
-    data: CreateWorkspaceSchema,
-) {
+export function createWorkspaceRecord(userId: string, data: CreateWorkspaceSchema) {
     return prisma.workspace.create({
         data: {
             userId: userId,
             ...data,
         },
         select: workspaceSelect,
-    });
-}
+    })
+};
 
-export function updateWorkspaceRecord(
-    workspaceId: string,
-    data: UpdateWorkspaceSchema,
-) {
+export function updateWorkspaceRecord(workspaceId: string, data: UpdateWorkspaceSchema) {
     return prisma.workspace.update({
         where: {
             id: workspaceId,
@@ -74,13 +61,13 @@ export function updateWorkspaceRecord(
             ...data,
         },
         select: workspaceSelect,
-    });
-}
+    })
+};
 
 export function deleteWorkspaceRecord(workspaceId: string) {
     return prisma.workspace.delete({
         where: {
             id: workspaceId,
         },
-    });
-}
+    })
+};
