@@ -3,12 +3,14 @@ import { prismaAdapter } from "better-auth/adapters/prisma";
 
 import prisma from "./db.js";
 
-const ClientBase = process.env.BETTER_AUTH_URL || "http://localhost:8080";
+const trustedClientOrigins = [
+    process.env.CORS_ORIGIN || "http://localhost:3000",
+];
 
 export const auth = betterAuth({
     baseURL: process.env.BETTER_AUTH_URL,
     secret: process.env.BETTER_AUTH_SECRET,
-    trustedOrigins: [ClientBase],
+    trustedOrigins: trustedClientOrigins,
 
     database: prismaAdapter(prisma, {
         provider: "postgresql",

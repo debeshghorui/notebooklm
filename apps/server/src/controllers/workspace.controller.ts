@@ -3,7 +3,7 @@ import {
     deleteWorkspaceForUser,
     getWorkspaceByIdForUser,
     updateWorkspaceForUser,
-} from "../services/workspace.services.js";
+} from "../services/workspace.service.js";
 import {
     createWorkspaceRecord,
     findWorkspaceByUserId,
