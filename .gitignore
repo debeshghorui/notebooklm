@@ -30,11 +30,14 @@ out/
 build
 dist
 
-
 # Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Prisma
+apps/server/generated/prisma
+apps/server/src/generated/prisma
 
 # Misc
 .DS_Store

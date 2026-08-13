@@ -2,7 +2,7 @@ import type { Prisma } from "../generated/prisma/client.js";
 import { uploadPdfToCloudinary } from "../lib/cloudinary.js";
 import { extractPdfFromBuffer } from "../lib/pdf.js";
 import { scrapeWebsite } from "../lib/firecrawl.js";
-import { enqueueSourceProcessing } from "../lib/source-events.js";
+import { enqueueSourceProcessing } from "../lib/sourceEvents.js";
 import { fetchYoutubeTranscript } from "../lib/youtube.js";
 import {
     createSourceRecord,
@@ -25,7 +25,7 @@ import type {
 import {
     listChunksForSource,
     removeSourceFromIndex,
-} from "./source-processing.service.js";
+} from "./sourceProcessing.service.js";
 
 /**
  * Persists a source row and enqueues the Inngest processing pipeline.
